@@ -27,10 +27,6 @@ public class StudentController {
         return new ResponseEntity<>(studentService.findById(id), HttpStatus.OK);
     }
 
-//    @GetMapping("/autoData")
-//    public ResponseEntity<CommonResponse> insertTest(){
-//        return new ResponseEntity<>(studentService.insert(new Student(1, "weichuan")), HttpStatus.OK);
-//    }
     @GetMapping()
     public ResponseEntity<CommonResponse> findAll() {
         return new ResponseEntity<>(studentService.findAll(), HttpStatus.OK);
