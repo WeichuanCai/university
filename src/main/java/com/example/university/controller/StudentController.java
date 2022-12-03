@@ -27,6 +27,10 @@ public class StudentController {
         return new ResponseEntity<>(studentService.findById(id), HttpStatus.OK);
     }
 
+//    @GetMapping("/autoData")
+//    public ResponseEntity<CommonResponse> insertTest(){
+//        return new ResponseEntity<>(studentService.insert(new Student(1, "weichuan")), HttpStatus.OK);
+//    }
     @GetMapping()
     public ResponseEntity<CommonResponse> findAll() {
         return new ResponseEntity<>(studentService.findAll(), HttpStatus.OK);
@@ -39,7 +43,10 @@ public class StudentController {
     }
 
     //TODO: /{id} , method : put,  update student
-
+    @PatchMapping("/{id}")
+    public ResponseEntity<CommonResponse> undate(@PathVariable String id, @RequestBody String name){
+        return new ResponseEntity<>(studentService.update(id, name), HttpStatus.OK);
+    }
 
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<CommonResponse> handleNotFound() {
