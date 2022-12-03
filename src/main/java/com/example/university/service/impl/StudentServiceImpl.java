@@ -46,4 +46,12 @@ public class StudentServiceImpl implements StudentService {
         Student student = studentRepository.insert(stu);
         return new CommonResponse(0, new Date(), student.getId());
     }
+
+    @Override
+    public CommonResponse update(String id, String name) {
+        Optional<Student> student = studentRepository.findById(id);
+        Student stu = student.get();
+        stu.setName(name);
+        return new CommonResponse(0, new Date(), stu);
+    }
 }

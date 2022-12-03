@@ -9,4 +9,6 @@ public interface StudentService {
     CommonResponse findById(String id);
     CommonResponse findAll();
     CommonResponse insert(Student stu);
+
+    CommonResponse update(String id, String name);
 }

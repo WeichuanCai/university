@@ -39,7 +39,10 @@ public class StudentController {
     }
 
     //TODO: /{id} , method : put,  update student
-
+    @PatchMapping("/{id}")
+    public ResponseEntity<CommonResponse> undate(@PathVariable String id, @RequestBody String name){
+        return new ResponseEntity<>(studentService.update(id, name), HttpStatus.OK);
+    }
 
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<CommonResponse> handleNotFound() {
