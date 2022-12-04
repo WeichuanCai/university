@@ -48,10 +48,11 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public CommonResponse update(String id, String name) {
+    public Student update(String id, String name) {
         Optional<Student> student = studentRepository.findById(id);
         Student stu = student.get();
         stu.setName(name);
-        return new CommonResponse(0, new Date(), stu);
+        studentRepository.save(stu);
+        return stu;
     }
 }
