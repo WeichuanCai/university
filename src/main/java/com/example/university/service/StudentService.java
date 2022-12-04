@@ -10,5 +10,5 @@ public interface StudentService {
     CommonResponse findAll();
     CommonResponse insert(Student stu);
 
-    CommonResponse update(String id, String name);
+    Student update(String id, String name);
 }
